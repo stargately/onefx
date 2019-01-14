@@ -48,7 +48,7 @@
     "koa2-ratelimit": "0.7.0",
     "load-script": "1.0.0",
     "methods": "1.1.2",
-    "mongoose": "5.4.3",
+    "mongoose": "5.4.4",
     "qcloudsms_js": "0.1.1",
     "react": "16.7.0",
     "react-dom": "16.7.0",
