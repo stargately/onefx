@@ -29,7 +29,9 @@ export function isoReactRenderMiddleware(server: Server): any {
       if (context.url) {
         return ctx.redirect(context.url);
       }
-      if (context.status) {
+      if (context.statusCode) {
+        ctx.status = context.statusCode;
+      } else if (context.status) {
         ctx.status = context.status;
       }
 
