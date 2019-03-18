@@ -4,8 +4,15 @@ export let t = (msgKey: string, _: Dict) => {
   return msgKey;
 };
 
-function getStr(translations: Dict, msgKey: string, data: Dict): string {
-  let unformatedMsg = translations[msgKey] || msgKey;
+function getStr(localTranslations: Dict, msgKey: string, data: Dict, enTranslations: Dict): string {
+  let unformatedMsg = localTranslations[msgKey];
+  if(unformatedMsg == undefined || unformatedMsg == null){
+    if(enTranslations){
+      unformatedMsg = enTranslations[msgKey];
+    } else {
+      unformatedMsg = msgKey;
+    }
+  }
   if (unformatedMsg === "null") {
     unformatedMsg = "";
   }
@@ -15,16 +22,22 @@ function getStr(translations: Dict, msgKey: string, data: Dict): string {
 export function initServerI18n(ctx: Context): void {
   const locale = ctx.i18n.getLocale();
   const translations = ctx.i18n.locales[locale];
-  ctx.setState("base.translations", translations);
+  const translationsdefault = ctx.i18n.locales['en'];
+
+  const totalTranslations = {
+    'local': translations,
+    'en': translationsdefault
+  }
+  ctx.setState("base.translations", totalTranslations);
   ctx.setState("base.locale", locale);
 
-  t = (msgKey, data) => getStr(translations, msgKey, data);
+  t = (msgKey, data) => getStr(translations, msgKey, data, translationsdefault);
 
   ctx.t = t;
 }
 
 export function initClientI18n(translations: Dict): void {
-  t = (msgKey: string, data: Dict) => getStr(translations, msgKey, data);
+  t = (msgKey: string, data: Dict) => getStr(translations.local, msgKey, data, translations.en);
 }
 
 function formatString(str: string, data: Dict): string {
