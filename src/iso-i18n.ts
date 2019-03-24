@@ -1,5 +1,7 @@
 import { Context, Dict } from "./types";
 
+const baseLang = "en";
+
 export let t = (msgKey: string, _: Dict) => {
   return msgKey;
 };
@@ -15,6 +17,10 @@ function getStr(translations: Dict, msgKey: string, data: Dict): string {
 export function initServerI18n(ctx: Context): void {
   const locale = ctx.i18n.getLocale();
   const translations = ctx.i18n.locales[locale];
+  const baseTranslations = ctx.i18n.locales[baseLang];
+  Object.keys(baseTranslations).forEach(key => {
+    translations[key] = translations[key] || baseTranslations[key];
+  });
   ctx.setState("base.translations", translations);
   ctx.setState("base.locale", locale);
 
