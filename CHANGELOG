@@ -1,0 +1,15 @@
+2019-03-24 - 1.4.1 (08fbbbd)
+08fbbbd (HEAD -> master) fix some types
+c909dbd (origin/master) fallback to en when translation does not exist (#32)
+c7d283c fix test
+fa6f9ac migrate to typescript and bump version
+43841a2 update context.statusCode in react router context
+c89f670 Update babel monorepo to v7.3.0
+410ead5 (tag: 1.3.0) bump 1.3.0
+372e218 cleanup inferno and misc
+67cc85a Update dependency koa2-ratelimit to v0.8.0
+9872d16 Update dependency mongoose to v5.4.4
+17783e0 add onefx
+a34f088 first commit
+
+
