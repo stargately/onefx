@@ -30,5 +30,6 @@ test("IntegratedGateways", async t => {
   t.truthy(g.logger);
   if (g.logger) {
     g.logger.info("log an info", { meta: { why: { a: { b: "c" } } } });
+    g.logger.info("log an info");
   }
 });

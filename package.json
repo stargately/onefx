@@ -16,8 +16,10 @@
     "cover": "tsc && NODE_ENV=test npm run lint && nyc npm run ava",
     "size": "ls -lh lib/",
     "bp": "npm run build && npm run size",
-    "build": "rm -rf ./lib && babel src/ --source-maps inline --extensions \".ts,.tsx,.js,.jsx\" --ignore **/__test__/**,src/**/**.test.ts -d lib",
+    "build": "npm run build:js && npm run build:types",
+    "build:js": "rm -rf ./lib && babel src/ --source-maps inline --extensions \".ts,.tsx,.js,.jsx\" --ignore **/__test__/**,src/**/**.test.ts -d lib",
     "build:watch": "babel --watch src/**/*.ts -d lib",
+    "build:types": "tsc --emitDeclarationOnly",
     "changelog-major": "build-changelog --major",
     "changelog-minor": "build-changelog --minor",
     "changelog-patch": "build-changelog --patch"
