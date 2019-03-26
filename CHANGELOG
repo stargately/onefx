@@ -1,3 +1,8 @@
+2019-03-25 - 1.4.2 (c10f4a9)
+c10f4a9 (HEAD -> master) do not emit d.ts
+540766a (tag: v1.4.1, origin/master) 1.4.1
+
+
 2019-03-24 - 1.4.1 (08fbbbd)
 08fbbbd (HEAD -> master) fix some types
 c909dbd (origin/master) fallback to en when translation does not exist (#32)
