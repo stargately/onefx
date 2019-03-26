@@ -40,7 +40,7 @@ function formatString(str: string, data?: Dict): string {
 
   let processed = str;
   Object.keys(data).forEach(key => {
-    processed = str.replace(`\${${key}}`, data[key]);
+    processed = processed.replace(`\${${key}}`, data[key]);
   });
 
   return processed;

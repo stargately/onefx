@@ -15,6 +15,12 @@ npm run ava ./path/to/test-file.js
 
 To run a single test case, follow instructions [here](https://github.com/avajs/ava/blob/master/docs/01-writing-tests.md#running-specific-tests).
 
+## debug
+
+- `npm run build` to build locally
+- `npm link` to register locally
+- run `npm link onefx`in the path of target project to soft link the lib to project to test
+
 ## Scripts
 
 - `npm run build`: build source code from `src` to `dist`
