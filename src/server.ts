@@ -42,18 +42,27 @@ export type Config = {
   session: {};
 };
 
+type SetRoute = (name: string, route: string, handler: Middleware) => void;
+
 export class Server {
   public app: Koa;
   public gateways: IntegratedGateways;
   public logger: Logger;
   public config: Config;
   public httpServer?: http.Server;
-  // @ts-ignore
   public router: Router;
   public processTitle: string;
 
-  // @ts-ignore
-  public all: (name: string, route: string, handler: Middleware) => void;
+  public all: SetRoute;
+  public get: SetRoute;
+  public post: SetRoute;
+  public put: SetRoute;
+  public head: SetRoute;
+  public delete: SetRoute;
+  public options: SetRoute;
+  public trace: SetRoute;
+  public copy: SetRoute;
+  public lock: SetRoute;
 
   constructor(config: Config) {
     this.config = config;
