@@ -1,3 +1,8 @@
+2019-03-26 - 1.4.3 (69bcd5f)
+69bcd5f (HEAD -> master, origin/master) fix  a bug in iso-i18n.js (#34)
+d2e6309 (tag: v1.4.2) 1.4.2
+
+
 2019-03-25 - 1.4.2 (c10f4a9)
 c10f4a9 (HEAD -> master) do not emit d.ts
 540766a (tag: v1.4.1, origin/master) 1.4.1
