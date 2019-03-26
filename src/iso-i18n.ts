@@ -2,11 +2,11 @@ import { Context, Dict } from "./types";
 
 const baseLang = "en";
 
-export let t = (msgKey: string, _: Dict) => {
-  return msgKey;
-};
+type Translate = (msgKey: string, data?: Dict) => string;
 
-function getStr(translations: Dict, msgKey: string, data: Dict): string {
+export let t: Translate = (msgKey: string, _?: Dict) => msgKey;
+
+function getStr(translations: Dict, msgKey: string, data?: Dict): string {
   let unformatedMsg = translations[msgKey] || msgKey;
   if (unformatedMsg === "null") {
     unformatedMsg = "";
@@ -30,10 +30,10 @@ export function initServerI18n(ctx: Context): void {
 }
 
 export function initClientI18n(translations: Dict): void {
-  t = (msgKey: string, data: Dict) => getStr(translations, msgKey, data);
+  t = (msgKey: string, data?: Dict) => getStr(translations, msgKey, data);
 }
 
-function formatString(str: string, data: Dict): string {
+function formatString(str: string, data?: Dict): string {
   if (!data) {
     return str;
   }
