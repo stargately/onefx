@@ -1,9 +1,9 @@
 import { Dict } from "./types";
 
-let m: Dict;
+let m: Dict = {};
 
 export function initAssetURL(manifest: Dict = {}): void {
-  m = manifest;
+  m = manifest || {};
 }
 
 export function assetURL(filename: string): string {

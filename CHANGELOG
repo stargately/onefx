@@ -1,3 +1,7 @@
+2019-04-08 - 1.4.4 (fee2ec9)
+fee2ec9 (HEAD -> master, tag: v1.4.3, origin/master) 1.4.3
+
+
 2019-03-26 - 1.4.3 (69bcd5f)
 69bcd5f (HEAD -> master, origin/master) fix  a bug in iso-i18n.js (#34)
 d2e6309 (tag: v1.4.2) 1.4.2
