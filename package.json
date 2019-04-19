@@ -110,7 +110,7 @@
     "is-browser": "2.1.0",
     "js-yaml": "3.12.1",
     "json-stringify-safe": "^5.0.1",
-    "koa": "2.6.2",
+    "koa": "2.7.0",
     "koa-bodyparser": "4.2.1",
     "koa-csrf": "3.0.7",
     "koa-helmet": "4.0.0",
