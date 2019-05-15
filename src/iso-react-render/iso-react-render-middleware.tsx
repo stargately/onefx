@@ -5,6 +5,7 @@ import JsonGlobals from "safe-json-globals";
 // @ts-ignore
 import { Server as StyletronServer } from "styletron-engine-atomic";
 import { initAssetURL } from "../asset-url";
+import { initClientI18n } from "../iso-i18n";
 import { Server } from "../server";
 import { Context, Middleware } from "../types";
 import { configureStore } from "./root/configure-store";
@@ -31,6 +32,7 @@ export function isoReactRenderMiddleware(_: Server): Middleware {
         statusCode: undefined,
         status: undefined
       };
+      initClientI18n(ctx.state.view.base.translations);
       const reactMarkup = renderToString(
         <RootServer
           store={store}

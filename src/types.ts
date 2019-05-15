@@ -1,10 +1,11 @@
+/* tslint:disable */
 import koa from "koa";
 import { Reducer } from "redux";
 
 export interface Context extends koa.Context {
   deepExtendState(newState: object): void;
 
-  setState(path: string, val: object): void;
+  setState(path: string, val: any): void;
 
   getState(path?: string): object;
 

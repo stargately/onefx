@@ -24,6 +24,7 @@ export function initI18nMiddleware(server: Server): void {
     f
       .split(".")
       .slice(0, -1)
+      .map(locale => locale.toLowerCase())
       .join(".")
   );
 

@@ -24,9 +24,7 @@ export function initServerI18n(ctx: Context): void {
   ctx.setState("base.translations", translations);
   ctx.setState("base.locale", locale);
 
-  t = (msgKey, data) => getStr(translations, msgKey, data);
-
-  ctx.t = t;
+  ctx.t = (msgKey: string, data: Dict) => getStr(translations, msgKey, data);
 }
 
 export function initClientI18n(translations: Dict): void {
