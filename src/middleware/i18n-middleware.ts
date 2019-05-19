@@ -24,7 +24,6 @@ export function initI18nMiddleware(server: Server): void {
     f
       .split(".")
       .slice(0, -1)
-      .map(locale => locale.toLowerCase())
       .join(".")
   );
 
@@ -47,9 +46,9 @@ export function initI18nMiddleware(server: Server): void {
     })
   );
   server.use(async (ctx: Context, next: Next) => {
-    const locale = String(dotty.get(ctx, "request.query.locale")).toLowerCase();
+    const locale = String(dotty.get(ctx, "request.query.locale"));
     if (locale && supportedLocales.indexOf(locale) !== -1) {
-      ctx.cookies.set("locale", ctx.request.query.locale.toLowerCase(), {
+      ctx.cookies.set("locale", ctx.request.query.locale, {
         maxAge: 14 * 24 * 3600 * 1000
       });
       ctx.i18n.setLocale(locale);
