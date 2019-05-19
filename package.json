@@ -1,7 +1,7 @@
 {
   "name": "onefx",
   "license": "MIT",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "OneFx Web Server that empowers the full-stack development.",
   "files": [
     "lib"
