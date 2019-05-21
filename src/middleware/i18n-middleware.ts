@@ -8,6 +8,12 @@ import { initServerI18n } from "../iso-i18n";
 import { Server } from "../server";
 import { Context, Next } from "../types";
 
+function prioritize(supportedLocales: Array<string>, langCode: string): void {
+  supportedLocales.sort((a: string, b: string) => {
+    return a === langCode ? -1 : b === langCode ? 1 : 0;
+  });
+}
+
 export function initI18nMiddleware(server: Server): void {
   locale(server.app);
   let directory = "./translations";
@@ -26,6 +32,7 @@ export function initI18nMiddleware(server: Server): void {
       .slice(0, -1)
       .join(".")
   );
+  prioritize(supportedLocales, "en");
 
   server.logger.info(
     `load translations [${supportedLocales}] from ${directory}`
