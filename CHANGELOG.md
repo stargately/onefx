@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.11](https://github.com/puncsky/template_website/compare/v1.4.10...v1.4.11) (2019-05-28)
+
 ## [1.4.10](https://github.com/puncsky/template_website/compare/v1.4.9...v1.4.10) (2019-05-21)
 
 ## [1.4.9](https://github.com/puncsky/template_website/compare/v1.4.8...v1.4.9) (2019-05-19)
