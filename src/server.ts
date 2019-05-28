@@ -42,7 +42,11 @@ export type Config = {
   session: {};
 };
 
-type SetRoute = (name: string, route: string, handler: Middleware) => void;
+type SetRoute = (
+  name: string,
+  route: string,
+  ...handler: Array<Middleware>
+) => void;
 
 export class Server {
   public app: Koa;
