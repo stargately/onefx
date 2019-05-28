@@ -22,9 +22,9 @@
     "build:js": "rm -rf ./lib && babel src/ --source-maps inline --extensions \".ts,.tsx,.js,.jsx\" --ignore **/__test__/**,src/**/**.test.ts -d lib",
     "build:watch": "babel --watch src/**/*.ts -d lib",
     "build:types": "tsc --emitDeclarationOnly",
-    "changelog-major": "standard-version -- --release-as major",
-    "changelog-minor": "standard-version -- --release-as minor",
-    "changelog-patch": "standard-version -- --release-as patch"
+    "changelog-major": "standard-version --release-as major",
+    "changelog-minor": "standard-version --release-as minor",
+    "changelog-patch": "standard-version --release-as patch"
   },
   "nyc": {
     "include": [
@@ -54,14 +54,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/puncsky/template_website.git"
+    "url": "git+ssh://git@github.com/puncsky/onefx.git"
   },
   "keywords": [],
   "author": "Tian Pan (puncsky@gmail.com)",
   "bugs": {
-    "url": "https://github.com/puncsky/template_website/issues"
+    "url": "https://github.com/puncsky/onefx/issues"
   },
-  "homepage": "https://github.com/puncsky/template_website#readme",
+  "homepage": "https://github.com/puncsky/onefx#readme",
   "devDependencies": {
     "@babel/cli": "7.2.3",
     "@babel/core": "7.3.4",

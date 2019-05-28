@@ -1,9 +1,8 @@
-# typescript-starter
+# OneFx
 
-A simplistic typescript boilerplate using babel, tslint, ava, and CircleCI.
+This project is the OneFx server to enable blazing-fast full-stack web development with React, GraphQL, KOA, TypeScript, AVA, Webpack, etc.
 
 ```bash
-nvm use 10.15.1
 npm install
 
 # test
