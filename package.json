@@ -19,7 +19,7 @@
     "build": "npm run build:js && npm run build:types",
     "build:js": "rm -rf ./lib && babel src/ --source-maps inline --extensions \".ts,.tsx,.js,.jsx\" --ignore **/__test__/**,src/**/**.test.ts -d lib",
     "build:watch": "babel --watch src/**/*.ts -d lib",
-    "build:types": "#tsc --emitDeclarationOnly",
+    "build:types": "tsc --emitDeclarationOnly",
     "changelog-major": "standard-version -- --release-as major",
     "changelog-minor": "standard-version -- --release-as minor",
     "changelog-patch": "standard-version -- --release-as patch"
