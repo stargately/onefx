@@ -21,8 +21,10 @@ export function initServerI18n(ctx: Context): void {
   Object.keys(baseTranslations).forEach(key => {
     translations[key] = translations[key] || baseTranslations[key];
   });
+  const supportedLocales = Object.keys(ctx.i18n.locales);
   ctx.setState("base.translations", translations);
   ctx.setState("base.locale", locale);
+  ctx.setState("base.supportedLocales", supportedLocales);
 
   ctx.t = (msgKey: string, data: Dict) => getStr(translations, msgKey, data);
 }
