@@ -90,7 +90,6 @@
     "typescript": "3.3.3333"
   },
   "dependencies": {
-    "@types/styletron-react": "5.0.0",
     "@types/deep-extend": "0.4.31",
     "@types/dottie": "2.0.3",
     "@types/json-stringify-safe": "5.0.0",
@@ -106,6 +105,7 @@
     "@types/react-helmet": "5.0.8",
     "@types/react-redux": "7.0.8",
     "@types/react-router-dom": "4.3.2",
+    "@types/styletron-react": "5.0.0",
     "@types/uuid": "3.4.4",
     "deep-extend": "0.6.0",
     "dottie": "latest",
@@ -122,7 +122,7 @@
     "koa-router": "7.4.0",
     "koa-send": "5.0.0",
     "koa-session": "5.10.1",
-    "koa2-ratelimit": "0.8.0",
+    "koa2-ratelimit": "0.9.0",
     "load-script": "1.0.0",
     "methods": "1.1.2",
     "react": "16.8.6",
