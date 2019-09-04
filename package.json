@@ -133,7 +133,7 @@
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
     "safe-json-globals": "2.1.0",
-    "styletron-engine-atomic": "1.1.0",
+    "styletron-engine-atomic": "1.4.1",
     "styletron-react": "4.4.4",
     "uuid": "3.3.2",
     "winston": "3.2.1"
