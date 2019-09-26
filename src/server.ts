@@ -44,7 +44,7 @@ export type Config = {
 
 type SetRoute = (
   name: string,
-  route: string,
+  route: string | RegExp,
   ...handler: Array<Middleware>
 ) => void;
 
