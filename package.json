@@ -100,7 +100,7 @@
     "@types/koa-send": "4.1.2",
     "@types/koa-session": "5.10.0",
     "@types/methods": "1.1.0",
-    "@types/node": "11.11.3",
+    "@types/node": "11.13.22",
     "@types/react-dom": "16.8.4",
     "@types/react-helmet": "5.0.8",
     "@types/react-redux": "7.0.8",
