@@ -87,7 +87,7 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-microsoft-contrib": "6.1.0",
     "tslint-require-connnect-typing": "1.0.1",
-    "typescript": "3.3.3333"
+    "typescript": "3.6.4"
   },
   "dependencies": {
     "@types/deep-extend": "0.4.31",
