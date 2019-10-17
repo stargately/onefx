@@ -14,14 +14,21 @@ export interface Context extends koa.Context {
     reducer: Reducer;
     clientScript: string;
   }): string;
+
+  state: State;
 }
 
-export type State = {
+export type ViewState = {
   base: {
     analytics: {};
     translations: Dict;
     manifest: Dict;
   };
+};
+
+export type State = {
+  view: ViewState;
+  nonce: string;
 };
 
 export type Middleware = koa.Middleware<State, Context>;

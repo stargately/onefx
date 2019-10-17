@@ -4,10 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import { Store } from "redux";
 // @ts-ignore
 import { Provider as StyletronProvider } from "styletron-react";
-import { State } from "../../types";
+import { ViewState } from "../../types";
 
 type Props = {
-  store: Store<State>;
+  store: Store<ViewState>;
   children: JSX.Element;
   // tslint:disable-next-line
   styletron: any;
