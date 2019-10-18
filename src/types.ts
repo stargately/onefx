@@ -24,12 +24,12 @@ export type ViewState = {
     translations: Dict;
     manifest: Dict;
   };
-};
+} & Record<any, any>;
 
 export type State = {
   view: ViewState;
   nonce: string;
-};
+} & Record<any, any>;
 
 export type Middleware = koa.Middleware<State, Context>;
 // tslint:disable-next-line
