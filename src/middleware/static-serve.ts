@@ -5,6 +5,7 @@ import { Context, Middleware } from "../types";
 
 type StaticOpts = {
   index: boolean | string;
+  hidden: boolean;
 };
 
 type Opts = StaticOpts & {
@@ -21,6 +22,7 @@ export function staticServe(root: string, staticOpts?: StaticOpts): Middleware {
   if (opts.index !== false) {
     opts.index = opts.index || "index.html";
   }
+  opts.hidden = true;
 
   return async (ctx: Context, next: Function): Promise<void> => {
     let done = false;
