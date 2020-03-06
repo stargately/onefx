@@ -10,7 +10,8 @@ export function viewBaseState(server: Server): Middleware {
     ctx.state.view = {
       base: {
         analytics: server.config.analytics || {},
-        csrfToken: ctx.csrf
+        csrfToken: ctx.csrf,
+        routePrefix: server.config.server.routePrefix
       }
     };
 

@@ -11,17 +11,19 @@ type Props = {
   children: JSX.Element;
   // tslint:disable-next-line
   styletron: any;
+  routePrefix: string;
 };
 
 export function RootBrowser({
   store,
   children,
-  styletron
+  styletron,
+  routePrefix
 }: Props): JSX.Element {
   return (
     <StyletronProvider value={styletron}>
       <Provider store={store}>
-        <BrowserRouter>{children}</BrowserRouter>
+        <BrowserRouter basename={routePrefix}>{children}</BrowserRouter>
       </Provider>
     </StyletronProvider>
   );

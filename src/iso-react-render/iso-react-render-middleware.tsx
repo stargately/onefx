@@ -12,7 +12,7 @@ import { configureStore } from "./root/configure-store";
 import { rootHtml } from "./root/root-html";
 import { RootServer } from "./root/root-server";
 
-export function isoReactRenderMiddleware(_: Server): Middleware {
+export function isoReactRenderMiddleware(server: Server): Middleware {
   return async (ctx: Context, next: Function) => {
     ctx.isoReactRender = ({ VDom, reducer, clientScript }): string => {
       const state = ctx.getState() as {
@@ -20,10 +20,12 @@ export function isoReactRenderMiddleware(_: Server): Middleware {
           manifest: {
             [key: string]: string;
           };
+          routePrefix: string;
         };
       };
       const jsonGlobals = JsonGlobals({ state });
-      initAssetURL(state.base.manifest);
+      const routePrefix = server.config.server.routePrefix || "";
+      initAssetURL(state.base.manifest, routePrefix);
       const store = configureStore(state, reducer);
       const styletron = new StyletronServer({ prefix: "_" });
 
@@ -39,6 +41,7 @@ export function isoReactRenderMiddleware(_: Server): Middleware {
           location={ctx.url}
           context={context}
           styletron={styletron}
+          routePrefix={routePrefix}
         >
           {VDom}
         </RootServer>

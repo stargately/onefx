@@ -13,6 +13,7 @@ type Props = {
   styletron: any;
   location: string;
   context: object;
+  routePrefix: string;
 };
 
 export function RootServer({
@@ -20,12 +21,17 @@ export function RootServer({
   styletron,
   location,
   context,
-  children
+  children,
+  routePrefix
 }: Props): JSX.Element {
   return (
     <StyletronProvider value={styletron}>
       <Provider store={store}>
-        <StaticRouter location={location} context={context}>
+        <StaticRouter
+          location={location}
+          context={context}
+          basename={routePrefix}
+        >
           {children}
         </StaticRouter>
       </Provider>

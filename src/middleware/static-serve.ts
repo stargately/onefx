@@ -4,12 +4,13 @@ import { resolve } from "path";
 import { Context, Middleware } from "../types";
 
 type StaticOpts = {
-  index: boolean | string;
-  hidden: boolean;
+  index?: boolean | string;
+  hidden?: boolean;
+  routePrefix?: string;
 };
 
 type Opts = StaticOpts & {
-  root: string;
+  root?: string;
 };
 
 export function staticServe(root: string, staticOpts?: StaticOpts): Middleware {
@@ -29,7 +30,13 @@ export function staticServe(root: string, staticOpts?: StaticOpts): Middleware {
 
     if (ctx.method === "HEAD" || ctx.method === "GET") {
       try {
-        const filePath = ctx.path;
+        let filePath = ctx.path;
+        if (staticOpts && staticOpts.routePrefix) {
+          filePath = ctx.path.replace(
+            new RegExp(`^${staticOpts.routePrefix}`),
+            ""
+          );
+        }
         done = Boolean(await send(ctx, filePath, opts));
       } catch (err) {
         if (err.status !== 404) {

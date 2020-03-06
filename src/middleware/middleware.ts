@@ -20,7 +20,13 @@ export function initMiddleware(server: Server): void {
   const staticDir =
     (server.config && server.config.server && server.config.server.staticDir) ||
     "dist";
-  server.all("serve-static", "/*", staticServe(staticDir));
+  server.all(
+    "serve-static",
+    "/*",
+    staticServe(staticDir, {
+      routePrefix: server.config.server.routePrefix
+    })
+  );
 
   server.use(bodyParser());
   server.use(cookieSessionMiddleware(server));

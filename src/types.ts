@@ -23,6 +23,7 @@ export type ViewState = {
     analytics: {};
     translations: Dict;
     manifest: Dict;
+    routePrefix: string;
   };
 } & Record<any, any>;
 

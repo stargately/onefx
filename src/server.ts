@@ -14,6 +14,7 @@ export type Config = {
     host: string;
     port: string;
     staticDir: string;
+    routePrefix?: string;
     delayInitMiddleware: boolean;
     cookie: {
       secrets: Array<string>;
@@ -96,6 +97,16 @@ export class Server {
         let koaRoute = args.shift();
         if (typeof args[0] === "string") {
           koaRoute = args.shift();
+        }
+        let routePrefix = this.config.server.routePrefix;
+        if (routePrefix) {
+          if (routePrefix[routePrefix.length - 1] !== "/") {
+            routePrefix = `${routePrefix}/`;
+          }
+          if (koaRoute[0] === "/") {
+            koaRoute = koaRoute.substr(1);
+          }
+          koaRoute = `${routePrefix}${koaRoute}`;
         }
         args.unshift(koaRoute);
         // @ts-ignore
