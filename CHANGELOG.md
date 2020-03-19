@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/puncsky/onefx/compare/v1.8.0...v1.8.1) (2020-03-19)
+
 ## [1.8.0](https://github.com/puncsky/onefx/compare/v1.7.0...v1.8.0) (2020-03-06)
 
 ## [1.7.0](https://github.com/puncsky/onefx/compare/v1.6.2...v1.7.0) (2020-03-04)
