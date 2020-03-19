@@ -14,5 +14,5 @@ export function assetURL(filename: string): string {
     return `${prefix}/${manifestFile}`;
   }
 
-  return filename;
+  return `${prefix}/filename`;
 }
