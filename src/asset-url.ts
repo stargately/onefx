@@ -3,16 +3,19 @@ import { Dict } from "./types";
 let m: Dict = {};
 let prefix: string = "";
 
-export function initAssetURL(manifest: Dict = {}, routePrefix: string): void {
+export function initAssetURL(
+  manifest: Dict = {},
+  routePrefix: string = ""
+): void {
   m = manifest || {};
-  prefix = routePrefix;
+  prefix = routePrefix.endsWith("/") ? routePrefix : `${routePrefix}/`;
 }
 
 export function assetURL(filename: string): string {
   const manifestFile = m[filename];
   if (manifestFile) {
-    return `${prefix || ""}/${manifestFile}`;
+    return `${prefix || ""}${manifestFile}`;
   }
 
-  return `${prefix || ""}/${filename}`;
+  return `${prefix || ""}${filename}`;
 }
