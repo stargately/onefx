@@ -11,8 +11,8 @@ export function initAssetURL(manifest: Dict = {}, routePrefix: string): void {
 export function assetURL(filename: string): string {
   const manifestFile = m[filename];
   if (manifestFile) {
-    return `${prefix}/${manifestFile}`;
+    return `${prefix || ""}/${manifestFile}`;
   }
 
-  return `${prefix}/filename`;
+  return `${prefix || ""}/${filename}`;
 }
