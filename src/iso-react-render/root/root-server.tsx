@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { StaticRouter } from "react-router-dom";
+import { StaticRouter } from "react-router";
 import { Store } from "redux";
 // @ts-ignore
 import { Provider as StyletronProvider } from "styletron-react";

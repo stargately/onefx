@@ -1,7 +1,7 @@
 {
   "name": "onefx",
   "license": "MIT",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "description": "OneFx Web Server that empowers the full-stack development.",
   "files": [
     "lib",
@@ -104,7 +104,8 @@
     "@types/react-dom": "16.8.4",
     "@types/react-helmet": "5.0.8",
     "@types/react-redux": "7.0.8",
-    "@types/react-router-dom": "4.3.5",
+    "@types/react-router": "^5.1.4",
+    "@types/react-router-dom": "^4.3.5",
     "@types/styletron-react": "5.0.0",
     "@types/uuid": "3.4.4",
     "deep-extend": "0.6.0",
@@ -129,7 +130,8 @@
     "react-dom": "16.9.0",
     "react-helmet": "5.2.1",
     "react-redux": "5.1.1",
-    "react-router-dom": "4.3.1",
+    "react-router": "5.1.2",
+    "react-router-dom": "5.1.2",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
     "safe-json-globals": "2.1.0",
