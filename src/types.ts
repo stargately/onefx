@@ -15,7 +15,16 @@ export interface Context extends koa.Context {
     clientScript: string;
   }): string;
 
+  request: koa.Request;
+
   state: State;
+}
+
+declare module "koa" {
+  interface Request {
+    body?: any;
+    rawBody: string;
+  }
 }
 
 export type ViewState = {
@@ -24,7 +33,7 @@ export type ViewState = {
     translations: Dict;
     manifest: Dict;
     routePrefix: string;
-  };
+  } & Record<any, any>;
 } & Record<any, any>;
 
 export type State = {
