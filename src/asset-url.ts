@@ -1,8 +1,7 @@
 import { Dict } from "./types";
 
 let m: Dict = {};
-let prefix: string = "";
-let cdnBaseUrl: string = "";
+let urlBase: string = "";
 
 export function initAssetURL(
   manifest: Dict = {},
@@ -10,27 +9,27 @@ export function initAssetURL(
   cdnBase: string = ""
 ): void {
   m = manifest || {};
-  if (routePrefix) {
-    prefix = routePrefix.endsWith("/") ? routePrefix : `${routePrefix}/`;
-  }
+  const segments = [];
   if (cdnBase) {
-    cdnBaseUrl = cdnBase.endsWith("/") ? cdnBase : `${cdnBase}/`;
+    let bs = cdnBase;
+    if (bs.endsWith("/")) {
+      bs = bs.substring(0, bs.length - 1);
+    }
+    segments.push(bs);
+  } else {
+    segments.push("");
   }
+  if (routePrefix) {
+    segments.push(...routePrefix.split("/").filter(s => s));
+  }
+  urlBase = segments.join("/");
 }
 
 export function assetURL(filename: string): string {
   const manifestFile = m[filename];
-  if (cdnBaseUrl) {
-    if (manifestFile) {
-      return `${cdnBaseUrl || ""}${prefix || ""}${manifestFile}`;
-    }
-
-    return `${cdnBaseUrl || ""}${prefix || ""}${filename}`;
-  }
-
   if (manifestFile) {
-    return `${prefix || ""}${manifestFile}`;
+    return `${urlBase || ""}/${manifestFile}`;
   }
 
-  return `${prefix || ""}${filename}`;
+  return `${urlBase || ""}/${filename}`;
 }
