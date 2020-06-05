@@ -25,7 +25,8 @@ export function isoReactRenderMiddleware(server: Server): Middleware {
       };
       const jsonGlobals = JsonGlobals({ state });
       const routePrefix = server.config.server.routePrefix || "";
-      initAssetURL(state.base.manifest, routePrefix);
+      const cdnBase = server.config.server.cdnBase || "";
+      initAssetURL(state.base.manifest, routePrefix, cdnBase);
       const store = configureStore(state, reducer);
       const styletron = new StyletronServer({ prefix: "_" });
 

@@ -20,10 +20,15 @@ type Opts = {
 
 export function clientReactRender({ reducer = noopReducer, VDom }: Opts): void {
   const store = configureStore(JSONGlobals("state"), reducer);
-  const { translations, manifest, routePrefix } = store.getState().base;
+  const {
+    translations,
+    manifest,
+    routePrefix,
+    cdnBase
+  } = store.getState().base;
 
   initClientI18n(translations);
-  initAssetURL(manifest, routePrefix);
+  initAssetURL(manifest, routePrefix, cdnBase);
   const stylesheets = document.getElementsByClassName(STYLETRON_GLOBAL);
   const styletron = new StyletronClient({ hydrate: stylesheets, prefix: "_" });
 

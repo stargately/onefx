@@ -15,6 +15,7 @@ export type Config = {
     port: string;
     staticDir: string;
     routePrefix?: string;
+    cdnBase?: string;
     delayInitMiddleware: boolean;
     cookie: {
       secrets: Array<string>;

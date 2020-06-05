@@ -33,6 +33,7 @@ export type ViewState = {
     translations: Dict;
     manifest: Dict;
     routePrefix: string;
+    cdnBase: string;
   } & Record<any, any>;
 } & Record<any, any>;
 

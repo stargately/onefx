@@ -11,7 +11,8 @@ export function viewBaseState(server: Server): Middleware {
       base: {
         analytics: server.config.analytics || {},
         csrfToken: ctx.csrf,
-        routePrefix: server.config.server.routePrefix
+        routePrefix: server.config.server.routePrefix,
+        cdnBase: server.config.server.cdnBase
       }
     };
 
