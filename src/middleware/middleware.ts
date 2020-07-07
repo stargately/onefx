@@ -1,6 +1,6 @@
 import bodyParser from "koa-bodyparser";
 import helmet from "koa-helmet";
-import uuid from "uuid/v4";
+import { v4 as uuidv4 } from "uuid";
 import { isoReactRenderMiddleware } from "../iso-react-render/iso-react-render-middleware";
 import { Server } from "../server";
 import { Context, Middleware, Next } from "../types";
@@ -22,9 +22,9 @@ export function initMiddleware(server: Server): void {
     "dist";
   server.all(
     "serve-static",
-    "/*",
+    "/(.*)",
     staticServe(staticDir, {
-      routePrefix: server.config.server.routePrefix
+      routePrefix: server.config.server.routePrefix,
     })
   );
 
@@ -46,17 +46,17 @@ export function initMiddleware(server: Server): void {
           return;
         }
         await helmet()(ctx, () => Promise.resolve(null));
-      }
+      },
     })
   );
   const cspConfig = server.config.csp;
   if (cspConfig) {
     server.use(
       htmlOnlyMiddleware({
-        preFunc: async ctx => {
-          ctx.state.nonce = uuid();
+        preFunc: async (ctx) => {
+          ctx.state.nonce = uuidv4();
         },
-        postFunc: async ctx => {
+        postFunc: async (ctx) => {
           if (isPrefixMatched(noSecurityHeadersRoutes, ctx.path)) {
             return;
           }
@@ -67,11 +67,11 @@ export function initMiddleware(server: Server): void {
                 ...cspConfig["script-src"],
                 (ctx: Context) => {
                   return `'nonce-${ctx.state.nonce}'`;
-                }
-              ]
-            }
+                },
+              ],
+            },
           })(ctx, () => null);
-        }
+        },
       })
     );
   }
@@ -79,7 +79,7 @@ export function initMiddleware(server: Server): void {
 
 function htmlOnlyMiddleware({
   preFunc = () => null,
-  postFunc = () => null
+  postFunc = () => null,
 }: {
   preFunc?: Middleware;
   postFunc?: Middleware;

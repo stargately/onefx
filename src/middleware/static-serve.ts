@@ -3,18 +3,12 @@ import send from "koa-send";
 import { resolve } from "path";
 import { Context, Middleware } from "../types";
 
-type StaticOpts = {
-  index?: boolean | string;
-  hidden?: boolean;
+type Opts = send.SendOptions & {
   routePrefix?: string;
 };
 
-type Opts = StaticOpts & {
-  root?: string;
-};
-
-export function staticServe(root: string, staticOpts?: StaticOpts): Middleware {
-  const opts = (staticOpts || {}) as Opts;
+export function staticServe(root: string, staticOpts?: Opts): Middleware {
+  const opts = (staticOpts || {}) as send.SendOptions;
 
   assert(root, "root directory is required to serve files");
 
