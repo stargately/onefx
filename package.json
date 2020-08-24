@@ -89,7 +89,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/styletron-react": "5.0.2",
     "@types/uuid": "8.0.0",
-    "ava": "3.10.0",
+    "ava": "3.12.1",
     "babel-loader": "8.1.0",
     "babel-plugin-module-resolver": "4.0.0",
     "babel-plugin-react-require": "3.1.3",
