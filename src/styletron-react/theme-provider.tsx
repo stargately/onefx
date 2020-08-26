@@ -1,5 +1,5 @@
-// @ts-ignore
-import window from "global/window";
+const window = require("global/window");
+
 import React, { useEffect } from "react";
 import { Theme } from "./theme-types";
 
@@ -41,19 +41,19 @@ export const defaultThemeCode =
   window.document && window.document.documentElement.getAttribute("data-theme");
 
 type Props = {
-  light: Theme;
+  light?: Theme;
   dark?: Theme;
   themeCode?: ThemeCode;
-  children: React.ReactNode;
-  setTheme(t: ThemeCode): void;
+  children?: React.ReactNode;
+  setTheme?(t: ThemeCode): void;
 };
 
 export const ThemeProvider = ({
-  light,
+  light = THEME,
   dark,
   children,
   themeCode = defaultThemeCode === "dark" ? "dark" : "light",
-  setTheme,
+  setTheme = () => null,
 }: Props): JSX.Element => {
   let curTheme = light;
   if (themeCode === "dark" && dark) {
