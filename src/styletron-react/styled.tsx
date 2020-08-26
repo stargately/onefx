@@ -1,4 +1,5 @@
-import React from "react";
+/* tslint:disable:no-any */
+import React, { PropsWithChildren } from "react";
 import {
   createStyled,
   StyletronComponent,
@@ -9,7 +10,7 @@ import { Consumer } from "./theme-provider";
 import { Theme } from "./theme-types";
 
 const wrapper: StyletronWrapper = (StyledComponent) =>
-  function withThemeHOC(props) {
+  function withThemeHOC(props: PropsWithChildren<any>): JSX.Element {
     return (
       <Consumer>
         {($theme) => <StyledComponent {...props} $theme={$theme} />}
