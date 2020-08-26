@@ -12,7 +12,7 @@ const wrapper: StyletronWrapper = (StyledComponent) =>
   function withThemeHOC(props) {
     return (
       <Consumer>
-        {(theme) => <StyledComponent {...props} theme={theme} />}
+        {($theme) => <StyledComponent {...props} $theme={$theme} />}
       </Consumer>
     );
   };
@@ -23,7 +23,7 @@ export interface StyledFn {
     P extends object
   >(
     component: C,
-    style: (props: P & { theme: Theme }) => StyleObject
+    style: (props: P & { $theme: Theme }) => StyleObject
   ): StyletronComponent<
     Pick<
       React.ComponentProps<C>,
