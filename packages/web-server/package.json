@@ -26,6 +26,9 @@
     "changelog-minor": "standard-version --release-as minor",
     "changelog-patch": "standard-version --release-as patch"
   },
+  "bin": {
+    "onefx-format-translations": "./lib/scripts/format-translations.js"
+  },
   "nyc": {
     "include": [
       "src/**/*.ts*"
