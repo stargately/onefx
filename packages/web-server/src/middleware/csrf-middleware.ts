@@ -1,3 +1,4 @@
+import dotty from "dottie";
 import CSRF from "koa-csrf";
 import { Server } from "../server";
 import { Context, Middleware, Next } from "../types";
@@ -13,12 +14,12 @@ export function csrfMiddleware(server: Server): Middleware {
     excludedMethods: ["GET", "HEAD", "OPTIONS"],
     disableQuery: false,
   });
-  const noCsrfRoutes = server.config.server?.noCsrfRoutes;
+  const noCsrfRoutes = dotty.get(server, "config.server.noCsrfRoutes") || {};
 
-  return async (ctx: Context, next: Next): Promise<void> => {
+  return async (ctx: Context, next: Next) => {
+    // @ts-ignore
     if (isPrefixMatched(noCsrfRoutes, ctx.path)) {
-      next();
-      return;
+      return next();
     }
     await csrf(ctx, next);
   };

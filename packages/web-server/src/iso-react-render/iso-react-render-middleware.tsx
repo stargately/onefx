@@ -1,5 +1,8 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
+// @ts-ignore
+import JsonGlobals from "safe-json-globals";
+// @ts-ignore
 import { Server as StyletronServer } from "styletron-engine-atomic";
 import { initAssetURL } from "../asset-url";
 import { initClientI18n } from "../iso-i18n";
@@ -9,10 +12,8 @@ import { configureStore } from "./root/configure-store";
 import { rootHtml } from "./root/root-html";
 import { RootServer } from "./root/root-server";
 
-const JsonGlobals = require("safe-json-globals");
-
 export function isoReactRenderMiddleware(server: Server): Middleware {
-  return async (ctx: Context, next: () => void) => {
+  return async (ctx: Context, next: Function) => {
     ctx.isoReactRender = ({ VDom, reducer, clientScript }): string => {
       const state = ctx.getState() as {
         base: {

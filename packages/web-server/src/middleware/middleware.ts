@@ -65,8 +65,8 @@ export function initMiddleware(server: Server): void {
               ...cspConfig,
               "script-src": [
                 ...cspConfig["script-src"],
-                (innerCtx: Context) => {
-                  return `'nonce-${innerCtx.state.nonce}'`;
+                (ctx: Context) => {
+                  return `'nonce-${ctx.state.nonce}'`;
                 },
               ],
             },

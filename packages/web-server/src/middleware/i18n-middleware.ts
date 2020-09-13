@@ -1,18 +1,16 @@
+import dotty from "dottie";
 import fs from "fs";
+// @ts-ignore
+import i18n from "koa-i18n";
+// @ts-ignore
+import locale from "koa-locale";
 import { initServerI18n } from "../iso-i18n";
 import { Server } from "../server";
 import { Context, Next } from "../types";
 
-const i18n = require("koa-i18n");
-const locale = require("koa-locale");
-const jsYaml = require("js-yaml");
-
 function prioritize(supportedLocales: Array<string>, langCode: string): void {
   supportedLocales.sort((a: string, b: string) => {
-    if (a === langCode) {
-      return -1;
-    }
-    return b === langCode ? 1 : 0;
+    return a === langCode ? -1 : b === langCode ? 1 : 0;
   });
 }
 
@@ -43,21 +41,21 @@ export function initI18nMiddleware(server: Server): void {
       locales: supportedLocales,
       modes: ["cookie", "query", "header"],
       extension: ".yaml",
-      parse(data: string): Record<string, unknown> {
-        return jsYaml.safeLoad(data);
+      parse(data: string): object {
+        return require("js-yaml").safeLoad(data);
       },
-      dump(data: string): Record<string, unknown> {
-        return jsYaml.safeDump(data);
+      dump(data: string): object {
+        return require("js-yaml").safeDump(data);
       },
     })
   );
   server.use(async (ctx: Context, next: Next) => {
-    const l = ctx.request?.query?.locale;
-    if (l && supportedLocales.indexOf(l) !== -1) {
+    const locale = String(dotty.get(ctx, "request.query.locale"));
+    if (locale && supportedLocales.indexOf(locale) !== -1) {
       ctx.cookies.set("locale", ctx.request.query.locale, {
         maxAge: 14 * 24 * 3600 * 1000,
       });
-      ctx.i18n.setLocale(l);
+      ctx.i18n.setLocale(locale);
     }
     initServerI18n(ctx);
     await next();
