@@ -3,11 +3,11 @@ import koa from "koa";
 import { Reducer } from "redux";
 
 export interface Context extends koa.Context {
-  deepExtendState(newState: Record<string, unknown>): void;
+  deepExtendState(newState: object): void;
 
   setState(path: string, val: any): void;
 
-  getState(path?: string): Record<string, unknown>;
+  getState(path?: string): object;
 
   isoReactRender(opts: {
     VDom: JSX.Element;
@@ -29,7 +29,7 @@ declare module "koa" {
 
 export type ViewState = {
   base: {
-    analytics: Record<string, any>;
+    analytics: {};
     translations: Dict;
     manifest: Dict;
     routePrefix: string;

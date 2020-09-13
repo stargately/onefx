@@ -4,7 +4,6 @@ const baseLang = "en";
 
 type Translate = (msgKey: string, data?: Dict) => string;
 
-// eslint-disable-next-line import/no-mutable-exports
 export let t: Translate = (msgKey: string, _?: Dict) => msgKey;
 
 function getStr(translations: Dict, msgKey: string, data?: Dict): string {

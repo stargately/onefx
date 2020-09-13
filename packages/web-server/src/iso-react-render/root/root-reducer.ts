@@ -1,9 +1,6 @@
 import { combineReducers } from "redux";
 
-export function noopReducer(
-  state: Record<string, unknown> = {},
-  _: Record<string, unknown>
-): Record<string, unknown> {
+export function noopReducer(state: object = {}, _: object): object {
   return state;
 }
 

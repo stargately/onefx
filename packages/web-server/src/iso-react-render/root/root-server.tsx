@@ -2,15 +2,17 @@ import React from "react";
 import { Provider } from "react-redux";
 import { StaticRouter } from "react-router";
 import { Store } from "redux";
+// @ts-ignore
 import { Provider as StyletronProvider } from "styletron-react";
 import { ViewState } from "../../types";
 
 type Props = {
   store: Store<ViewState>;
   children: JSX.Element;
+  // tslint:disable-next-line
   styletron: any;
   location: string;
-  context: Record<string, unknown>;
+  context: object;
   routePrefix: string;
 };
 

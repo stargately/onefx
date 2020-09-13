@@ -1,14 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
 import { Reducer } from "redux";
+// @ts-ignore
+import JSONGlobals from "safe-json-globals/get";
+// @ts-ignore
 import { Client as StyletronClient } from "styletron-engine-atomic";
 import { initAssetURL } from "../asset-url";
 import { initClientI18n } from "../iso-i18n";
 import { configureStore } from "./root/configure-store";
 import { RootBrowser } from "./root/root-browser";
 import { noopReducer } from "./root/root-reducer";
-
-const JSONGlobals = require("safe-json-globals/get");
 
 export const STYLETRON_GLOBAL = "styletron-global";
 

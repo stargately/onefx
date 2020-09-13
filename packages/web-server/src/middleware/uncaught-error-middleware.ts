@@ -2,7 +2,7 @@ import { Server } from "../server";
 import { Context, Middleware } from "../types";
 
 export function uncaughtErrorMiddleware(server: Server): Middleware {
-  return async (ctx: Context, next: () => void) => {
+  return async (ctx: Context, next: Function) => {
     try {
       await next();
     } catch (err) {
