@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { Reducer } from "redux";
+import { Client as StyletronClient } from "styletron-engine-atomic";
 import { initAssetURL } from "../asset-url";
 import { initClientI18n } from "../iso-i18n";
 import { configureStore } from "./root/configure-store";
@@ -8,9 +9,6 @@ import { RootBrowser } from "./root/root-browser";
 import { noopReducer } from "./root/root-reducer";
 
 const JSONGlobals = require("safe-json-globals/get");
-const engine = require("styletron-engine-atomic");
-
-const StyletronClient = engine.client;
 
 export const STYLETRON_GLOBAL = "styletron-global";
 
@@ -30,7 +28,9 @@ export function clientReactRender({ reducer = noopReducer, VDom }: Opts): void {
 
   initClientI18n(translations);
   initAssetURL(manifest, routePrefix, cdnBase);
-  const stylesheets = document.getElementsByClassName(STYLETRON_GLOBAL);
+  const stylesheets = document.getElementsByClassName(
+    STYLETRON_GLOBAL
+  ) as HTMLCollectionOf<HTMLStyleElement>;
   const styletron = new StyletronClient({ hydrate: stylesheets, prefix: "_" });
 
   render(

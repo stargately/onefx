@@ -1,5 +1,6 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
+import { Server as StyletronServer } from "styletron-engine-atomic";
 import { initAssetURL } from "../asset-url";
 import { initClientI18n } from "../iso-i18n";
 import { Server } from "../server";
@@ -9,9 +10,6 @@ import { rootHtml } from "./root/root-html";
 import { RootServer } from "./root/root-server";
 
 const JsonGlobals = require("safe-json-globals");
-const engine = require("styletron-engine-atomic");
-
-const StyletronServer = engine.Server;
 
 export function isoReactRenderMiddleware(server: Server): Middleware {
   return async (ctx: Context, next: () => void) => {
