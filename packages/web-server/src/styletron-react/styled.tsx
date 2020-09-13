@@ -21,6 +21,7 @@ const wrapper: StyletronWrapper = (StyledComponent) =>
 export interface StyledFn {
   <
     C extends keyof JSX.IntrinsicElements | React.ComponentType<any>,
+    // eslint-disable-next-line @typescript-eslint/ban-types
     P extends object
   >(
     component: C,

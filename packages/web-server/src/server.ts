@@ -2,6 +2,7 @@ import http from "http";
 import Koa from "koa";
 import Router from "koa-router";
 import methods from "methods";
+import session from "koa-session";
 import { hostname } from "os";
 import { IntegratedGateways } from "./integrated-gateways/integrated-gateways";
 import { Logger } from "./integrated-gateways/logger";
@@ -41,7 +42,7 @@ export type Config = {
   analytics: {
     [key: string]: string;
   };
-  session: {};
+  session: Partial<session.opts>;
 };
 
 type SetRoute = (
@@ -52,22 +53,37 @@ type SetRoute = (
 
 export class Server {
   public app: Koa;
+
   public gateways: IntegratedGateways;
+
   public logger: Logger;
+
   public config: Config;
+
   public httpServer?: http.Server;
+
   public router: Router;
+
   public processTitle: string;
 
   public all: SetRoute;
+
   public get: SetRoute;
+
   public post: SetRoute;
+
   public put: SetRoute;
+
   public head: SetRoute;
+
   public delete: SetRoute;
+
   public options: SetRoute;
+
   public trace: SetRoute;
+
   public copy: SetRoute;
+
   public lock: SetRoute;
 
   constructor(config: Config) {
@@ -99,7 +115,7 @@ export class Server {
         if (typeof args[0] === "string") {
           koaRoute = args.shift();
         }
-        let routePrefix = this.config.server.routePrefix;
+        let { routePrefix } = this.config.server;
         if (routePrefix) {
           if (routePrefix[routePrefix.length - 1] !== "/") {
             routePrefix = `${routePrefix}/`;

@@ -19,7 +19,7 @@ export function staticServe(root: string, staticOpts?: Opts): Middleware {
   }
   opts.hidden = true;
 
-  return async (ctx: Context, next: Function): Promise<void> => {
+  return async (ctx: Context, next: () => void): Promise<void> => {
     let done = false;
 
     if (ctx.method === "HEAD" || ctx.method === "GET") {

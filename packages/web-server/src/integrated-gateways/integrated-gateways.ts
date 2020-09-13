@@ -1,9 +1,9 @@
 import { Config } from "../server";
-import { Logger } from "./logger";
-import { createLogger } from "./logger";
+import { Logger, createLogger } from "./logger";
 
 export class IntegratedGateways {
   public logger: Logger;
+
   public config: Config;
 
   constructor(cfg: Config) {
@@ -12,6 +12,6 @@ export class IntegratedGateways {
     this.logger = createLogger(this.config.gateways.logger);
   }
 
-  // tslint:disable-next-line:no-empty
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public close(): void {}
 }

@@ -1,7 +1,7 @@
-const window = require("global/window");
-
 import React, { useEffect } from "react";
 import { Theme } from "./theme-types";
+
+const window = require("global/window");
 
 export type ThemeCode = "light" | "dark";
 

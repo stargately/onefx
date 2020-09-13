@@ -2,7 +2,7 @@ import stringify from "json-stringify-safe";
 import winston from "winston";
 
 export type Meta = {
-  meta: object;
+  meta: Record<string, unknown>;
 };
 
 export type Logger = {
@@ -20,7 +20,7 @@ const defaultCfg: LoggerConfig = {
   level: "info",
 };
 
-// tslint:disable-next-line:no-object-literal-type-assertion
+// eslint-disable-next-line import/no-mutable-exports
 export let logger = {
   ...console,
   // tslint:disable-next-line:no-console
