@@ -5,7 +5,7 @@ import { ViewState } from "../../types";
 import { rootReducer } from "./root-reducer";
 
 export function configureStore(
-  initialState: { base: object },
+  initialState: { base: Record<string, unknown> },
   reducer: Reducer = rootReducer
 ): Store<ViewState> {
   const middleware = [];

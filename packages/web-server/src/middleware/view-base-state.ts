@@ -16,11 +16,11 @@ export function viewBaseState(server: Server): Middleware {
       },
     };
 
-    ctx.deepExtendState = (newState: object): void => {
+    ctx.deepExtendState = (newState: Record<string, unknown>): void => {
       ctx.state.view = deepExtend({}, ctx.state.view, newState);
     };
 
-    ctx.setState = (path: string, val: object): void => {
+    ctx.setState = (path: string, val: Record<string, unknown>): void => {
       dotty.set(ctx.state.view, path, val);
     };
 

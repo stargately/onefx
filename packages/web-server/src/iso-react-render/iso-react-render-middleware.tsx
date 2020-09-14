@@ -13,7 +13,7 @@ import { rootHtml } from "./root/root-html";
 import { RootServer } from "./root/root-server";
 
 export function isoReactRenderMiddleware(server: Server): Middleware {
-  return async (ctx: Context, next: Function) => {
+  return async (ctx: Context, next: () => void) => {
     ctx.isoReactRender = ({ VDom, reducer, clientScript }): string => {
       const state = ctx.getState() as {
         base: {

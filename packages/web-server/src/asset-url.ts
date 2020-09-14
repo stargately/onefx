@@ -1,12 +1,12 @@
 import { Dict } from "./types";
 
 let m: Dict = {};
-let urlBase: string = "";
+let urlBase = "";
 
 export function initAssetURL(
   manifest: Dict = {},
-  routePrefix: string = "",
-  cdnBase: string = ""
+  routePrefix = "",
+  cdnBase = ""
 ): void {
   m = manifest || {};
   const segments = [];

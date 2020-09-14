@@ -12,7 +12,7 @@ type Props = {
   // tslint:disable-next-line
   styletron: any;
   location: string;
-  context: object;
+  context: Record<string, unknown>;
   routePrefix: string;
 };
 
