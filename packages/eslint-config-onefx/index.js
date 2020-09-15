@@ -5,6 +5,7 @@ module.exports = {
     browser: true,
   },
   rules: {
+    "global-require": [0],
     "import/no-extraneous-dependencies": 0,
     "no-use-before-define": [0],
     "@typescript-eslint/no-use-before-define": [1],
