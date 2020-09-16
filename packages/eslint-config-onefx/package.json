@@ -1,6 +1,6 @@
 {
   "name": "@puncsky/eslint-config-onefx",
-  "version": "2.3.0",
+  "version": "2.3.7",
   "description": "lint rules for onefx projects",
   "main": "index.js",
   "scripts": {
