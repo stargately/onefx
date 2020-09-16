@@ -6,11 +6,8 @@ module.exports = {
       {
         name: "antd",
         message: "import antd/lib/* instead.",
-      },
-      {
-        name: "styletron-react",
-        message: "import onefx/lib/styletron-react instead.",
-      },
+      }
     ],
+    "react/prop-types": 0
   },
 };
