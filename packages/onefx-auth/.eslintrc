@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@puncsky/eslint-config-onefx"
+  ]
+}

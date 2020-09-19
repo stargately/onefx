@@ -14,7 +14,7 @@
     "ava": "NODE_ENV=test ava",
     "server": "node server",
     "lint": "pretty-quick --staged && eslint src --fix --ext .js,.tsx,.ts --quiet",
-    "qualitycheck": "npm-run-all typecheck tslint",
+    "qualitycheck": "npm-run-all typecheck",
     "cover": "tsc && NODE_ENV=test npm run lint && nyc npm run ava",
     "size": "ls -lh lib/",
     "bp": "npm run build && npm run size",

@@ -1,0 +1,110 @@
+{
+  "name": "onefx-auth",
+  "license": "MIT",
+  "version": "1.2.0",
+  "description": "field_description",
+  "main": "index.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "npm run cover",
+    "check-coverage": "nyc check-coverage --lines 65 --functions 60 --Statements 65",
+    "ava": "NODE_ENV=test ava",
+    "server": "node server",
+    "lint": "pretty-quick --staged && eslint src --fix --ext .js,.tsx,.ts --quiet",
+    "qualitycheck": "npm-run-all typecheck",
+    "cover": "tsc && NODE_ENV=test npm run lint && nyc npm run ava",
+    "size": "ls -lh lib/",
+    "bp": "npm run build && npm run size",
+    "build:js": "rm -rf ./lib && babel src/ --source-maps inline --extensions \".ts,.tsx,.js,.jsx\" --ignore **/__test__/**,src/**/**.test.ts -d lib",
+    "build:watch": "babel --watch src/**/*.ts -d lib",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:js && npm run build:types"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.test.ts",
+      "src/**/__tests__/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary",
+      "cobertura"
+    ],
+    "extension": [
+      ".tsx",
+      ".ts"
+    ],
+    "cache": true,
+    "temp-directory": "./coverage/.nyc_output"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/puncsky/template_website.git"
+  },
+  "keywords": [],
+  "author": "field_author",
+  "bugs": {
+    "url": "https://github.com/puncsky/template_website/issues"
+  },
+  "homepage": "https://github.com/puncsky/template_website#readme",
+  "devDependencies": {
+    "@babel/cli": "7.11.6",
+    "@babel/core": "7.11.6",
+    "@babel/preset-env": "7.11.5",
+    "@babel/preset-typescript": "7.10.4",
+    "@babel/register": "7.11.5",
+    "@puncsky/eslint-config-onefx": "^2.3.7",
+    "@types/node": "11.15.27",
+    "@typescript-eslint/eslint-plugin": "4.1.1",
+    "@typescript-eslint/parser": "4.1.1",
+    "ava": "2.4.0",
+    "babel-loader": "8.1.0",
+    "babel-plugin-module-resolver": "3.2.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "build-changelog": "2.1.2",
+    "eslint": "7.9.0",
+    "eslint-plugin-import": "2.22.0",
+    "global": "4.4.0",
+    "husky": "3.1.0",
+    "nyc": "14.1.1",
+    "prettier": "1.19.1",
+    "pretty-quick": "2.0.2",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.7",
+    "@types/mongoose": "^5.7.36",
+    "mongoose": "^5.10.6",
+    "@types/koa": "^2.11.4",
+    "koa": "^2.13.0",
+    "@types/uuid": "^8.3.0",
+    "uuid": "^8.3.0"
+  },
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "8.5.0",
+    "@types/nodemailer": "6.4.0",
+    "@types/nodemailer-mailgun-transport": "1.4.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.4.11",
+    "nodemailer-mailgun-transport": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@types/mongoose": "^5.7.36",
+    "mongoose": "^5.10.6",
+    "@types/koa": "^2.11.4",
+    "koa": "^2.13.0",
+    "@types/uuid": "^8.3.0",
+    "uuid": "^8.3.0"
+  }
+}
