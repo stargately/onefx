@@ -1,7 +1,7 @@
 {
   "name": "onefx-auth",
   "license": "MIT",
-  "version": "1.2.0",
+  "version": "2.4.0",
   "description": "field_description",
   "main": "index.ts",
   "files": [
@@ -64,8 +64,11 @@
     "@babel/preset-env": "7.11.5",
     "@babel/preset-typescript": "7.10.4",
     "@babel/register": "7.11.5",
-    "@puncsky/eslint-config-onefx": "^2.3.7",
+    "@puncsky/eslint-config-onefx": "^2.4.0",
+    "@types/koa": "^2.11.4",
+    "@types/mongoose": "^5.7.36",
     "@types/node": "11.15.27",
+    "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "4.1.1",
     "@typescript-eslint/parser": "4.1.1",
     "ava": "2.4.0",
@@ -77,16 +80,13 @@
     "eslint-plugin-import": "2.22.0",
     "global": "4.4.0",
     "husky": "3.1.0",
+    "koa": "^2.13.0",
+    "mongoose": "^5.10.6",
     "nyc": "14.1.1",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.2",
     "ts-node": "8.10.2",
     "typescript": "3.9.7",
-    "@types/mongoose": "^5.7.36",
-    "mongoose": "^5.10.6",
-    "@types/koa": "^2.11.4",
-    "koa": "^2.13.0",
-    "@types/uuid": "^8.3.0",
     "uuid": "^8.3.0"
   },
   "dependencies": {
@@ -100,11 +100,11 @@
     "nodemailer-mailgun-transport": "^2.0.0"
   },
   "peerDependencies": {
-    "@types/mongoose": "^5.7.36",
-    "mongoose": "^5.10.6",
     "@types/koa": "^2.11.4",
-    "koa": "^2.13.0",
+    "@types/mongoose": "^5.7.36",
     "@types/uuid": "^8.3.0",
+    "koa": "^2.13.0",
+    "mongoose": "^5.10.6",
     "uuid": "^8.3.0"
   }
 }
