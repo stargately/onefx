@@ -21,10 +21,7 @@
     "build": "npm run build:js && npm run build:types",
     "build:js": "rm -rf ./lib && babel src/ --source-maps inline --extensions \".ts,.tsx,.js,.jsx\" --ignore **/__test__/**,src/**/**.test.ts -d lib",
     "build:watch": "babel --watch src/**/*.ts -d lib",
-    "build:types": "tsc --emitDeclarationOnly",
-    "changelog-major": "standard-version --release-as major",
-    "changelog-minor": "standard-version --release-as minor",
-    "changelog-patch": "standard-version --release-as patch"
+    "build:types": "tsc --emitDeclarationOnly"
   },
   "bin": {
     "onefx-format-translations": "./lib/scripts/format-translations.js"
@@ -119,7 +116,6 @@
     "react-router-dom": "5.2.0",
     "redux": "4.0.5",
     "redux-thunk": "2.3.0",
-    "standard-version": "8.0.0",
     "styletron-engine-atomic": "1.4.6",
     "styletron-react": "5.2.7",
     "ts-node": "9.0.0",
