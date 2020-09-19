@@ -3,9 +3,10 @@
   "license": "MIT",
   "version": "2.4.0",
   "description": "field_description",
-  "main": "index.ts",
   "files": [
-    "lib"
+    "lib",
+    "index.d.ts",
+    "index.js"
   ],
   "scripts": {
     "test": "npm run cover",
