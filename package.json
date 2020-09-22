@@ -2,6 +2,20 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "3.22.1"
+    "@babel/core": "^7.11.6",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/react": "^6.0.21",
+    "babel-loader": "^8.1.0",
+    "lerna": "3.22.1",
+    "react-is": "^16.13.1",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1"
+  },
+  "dependencies": {},
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }
