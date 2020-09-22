@@ -5,8 +5,8 @@ import { Context } from "onefx/lib/types";
 import * as React from "react";
 import validator from "validator";
 import { Server } from "onefx";
-import { IdentityAppContainer } from "./view/identity-app-container";
 import { OnefxAuth } from "onefx-auth";
+import { IdentityAppContainer } from "./view/identity-app-container";
 
 const PASSWORD_MIN_LENGTH = 8;
 
@@ -53,11 +53,10 @@ export function passwordValidator(): Handler {
   };
 }
 
-function isoRender(ctx: Context, ThemeProvider: React.Component): void {
+function isoRender(ctx: Context, ThemeProvider: any): void {
   ctx.body = ctx.isoReactRender({
     VDom: (
       <ThemeProvider>
-        {" "}
         <IdentityAppContainer />
       </ThemeProvider>
     ),
