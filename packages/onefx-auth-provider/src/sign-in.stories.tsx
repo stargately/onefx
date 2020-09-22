@@ -1,13 +1,11 @@
 import React from "react";
 import { themeDecorator } from "onefx-common-components/lib/storybook-utils";
-import { EmailField } from "./email-password-identity-provider/view/email-field";
+import { SignIn } from "./email-password-identity-provider/view/sign-in";
 
-export const Standard: React.FC = () => (
-  <EmailField error={"error message"} defaultValue={"yo"} />
-);
+export const Standard: React.FC = () => <SignIn />;
 
 export default {
-  component: EmailField,
+  component: SignIn,
   decorators: [themeDecorator()],
   title: "onefx-auth-provider|SignIn"
 };

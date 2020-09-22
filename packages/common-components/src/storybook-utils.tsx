@@ -7,6 +7,8 @@ import { Theme, ThemeProvider } from "onefx/lib/styletron-react";
 import { THEME } from "onefx/lib/styletron-react/theme-provider";
 import { Client as StyletronClient } from "styletron-engine-atomic";
 import { Provider as StyletronProvider } from "styletron-react";
+import { Provider } from "react-redux";
+import { configureStore } from "onefx/lib/iso-react-render/root/configure-store";
 
 const styletron = new StyletronClient({ prefix: "_" });
 
@@ -52,13 +54,15 @@ export const WrapThemeProvider: React.FC = ({ children }) => {
 export const themeDecorator = () =>
   function Inner(story: Story): JSX.Element {
     return (
-      <WrapThemeProvider>
-        <Overlay>
-          <MobileContent>
-            <BrowserRouter>{React.createElement(story)}</BrowserRouter>
-          </MobileContent>
-        </Overlay>
-      </WrapThemeProvider>
+      <Provider store={configureStore({ base: {} })}>
+        <WrapThemeProvider>
+          <Overlay>
+            <MobileContent>
+              <BrowserRouter>{React.createElement(story)}</BrowserRouter>
+            </MobileContent>
+          </Overlay>
+        </WrapThemeProvider>
+      </Provider>
     );
   };
 
