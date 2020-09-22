@@ -35,7 +35,8 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"]
-    }
+    },
+    "skipLibCheck": true
   },
   "include": ["src/.dev", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules/**"],

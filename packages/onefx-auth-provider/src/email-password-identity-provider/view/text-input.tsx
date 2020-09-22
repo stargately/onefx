@@ -2,7 +2,7 @@ import { styled } from "onefx/lib/styletron-react";
 
 export const TextInput = styled(
   "input",
-  (props: { error?: string; color?: string; $theme: any }) => {
+  (props: { error?: string; color?: string; $theme?: any }) => {
     return {
       color: `${props.color || props.$theme.colors.text01} !important`,
       borderRadius: "0px !important",

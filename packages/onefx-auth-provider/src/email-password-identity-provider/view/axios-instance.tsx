@@ -1,5 +1,6 @@
 import axios from "axios";
-import isBrowser from "is-browser";
+
+const isBrowser = require("is-browser");
 
 const JsonGlobal = require("safe-json-globals/get");
 
