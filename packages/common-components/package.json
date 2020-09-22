@@ -1,7 +1,7 @@
 {
   "name": "onefx-common-components",
   "license": "MIT",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "field_description",
   "files": [
     "lib",
