@@ -1,7 +1,7 @@
 {
   "name": "onefx-auth-provider",
   "license": "MIT",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "field_description",
   "files": [
     "lib",
@@ -135,14 +135,14 @@
     "antd": "^4.6.4",
     "axios": "^0.20.0",
     "form-serialize": "^0.7.2",
+    "is-browser": "^2.1.0",
     "koa": "^2.13.0",
     "onefx": "2.4.0",
     "onefx-auth": "^2.4.2",
+    "onefx-common-components": "^2.4.3",
     "react": "^16.8.6",
     "react-redux": "^7.2.1",
-    "styletron-engine-atomic": "^1.1.0",
-    "onefx-common-components": "^2.4.3",
-    "is-browser": "^2.1.0"
+    "styletron-engine-atomic": "^1.1.0"
   },
   "dependencies": {
     "@types/validator": "^13.1.0",
