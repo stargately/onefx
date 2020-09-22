@@ -53,9 +53,14 @@ export function passwordValidator(): Handler {
   };
 }
 
-function isoRender(ctx: Context): void {
+function isoRender(ctx: Context, ThemeProvider: React.Component): void {
   ctx.body = ctx.isoReactRender({
-    VDom: <IdentityAppContainer />,
+    VDom: (
+      <ThemeProvider>
+        {" "}
+        <IdentityAppContainer />
+      </ThemeProvider>
+    ),
     reducer: noopReducer,
     clientScript: "/identity-provider-main.js"
   });
@@ -63,23 +68,24 @@ function isoRender(ctx: Context): void {
 
 export function setEmailPasswordIdentityProviderRoutes(
   server: Server,
-  auth: OnefxAuth
+  auth: OnefxAuth,
+  ThemeProvider: React.Component
 ): void {
   // view routes
   server.get("login", "/login", async (ctx: Context) => {
     ctx.setState("base.next", ctx.query.next);
     ctx.setState("base.userId", ctx.state.userId);
-    return isoRender(ctx);
+    return isoRender(ctx, ThemeProvider);
   });
   server.get("sign-up", "/sign-up", async (ctx: Context) => {
     ctx.setState("base.next", ctx.query.next);
     ctx.setState("base.userId", ctx.state.userId);
-    return isoRender(ctx);
+    return isoRender(ctx, ThemeProvider);
   });
   server.get("forgot-password", "/forgot-password", async (ctx: Context) => {
     ctx.setState("base.next", ctx.query.next);
     ctx.setState("base.userId", ctx.state.userId);
-    return isoRender(ctx);
+    return isoRender(ctx, ThemeProvider);
   });
   server.get(
     "reset-password",
@@ -88,7 +94,7 @@ export function setEmailPasswordIdentityProviderRoutes(
       const { token } = ctx.query;
       const found = await auth.emailToken.findOne(token);
       ctx.setState("base.token", found && found.token);
-      return isoRender(ctx);
+      return isoRender(ctx, ThemeProvider);
     }
   );
   server.get("logout", "/logout", auth.logout);
@@ -98,7 +104,7 @@ export function setEmailPasswordIdentityProviderRoutes(
     async (ctx: Context, next: koa.Next): Promise<void> => {
       const et = await auth.emailToken.findOneAndDelete(ctx.params.token);
       if (!et || !et.userId) {
-        isoRender(ctx);
+        isoRender(ctx, ThemeProvider);
         return;
       }
 

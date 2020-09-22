@@ -10,7 +10,7 @@ import { ResetPasswordContainer } from "./reset-password";
 import { SignIn } from "./sign-in";
 import { SignUp } from "./sign-up";
 
-const initGoogleAnalytics = require("../../../common/google-analytics");
+const initGoogleAnalytics = require("onefx-common-components/lib/google-analytics");
 
 type Props = {
   googleTid?: string;
