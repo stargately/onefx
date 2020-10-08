@@ -2,11 +2,16 @@ module.exports = {
   extends: ["airbnb-base", "plugin:@typescript-eslint/recommended", "prettier"],
   plugins: ["@typescript-eslint"],
   env: {
-    browser: true,
+    browser: true
   },
   rules: {
     "global-require": [0],
-    "import/no-extraneous-dependencies": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: true
+      }
+    ],
     "no-use-before-define": [0],
     "@typescript-eslint/no-use-before-define": [1],
     "@typescript-eslint/no-var-requires": 0,
@@ -17,7 +22,7 @@ module.exports = {
       "error",
       "ForInStatement",
       "LabelStatement",
-      "WithStatement",
+      "WithStatement"
     ],
     "no-underscore-dangle": 0,
     "no-unused-expressions": 0,
@@ -25,18 +30,18 @@ module.exports = {
     "import/no-unresolved": 0,
     "import/prefer-default-export": 0,
     "class-methods-use-this": 0,
-    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/ban-ts-comment": 0
   },
   overrides: [
     {
       files: "*.js",
       rules: {
-        "@typescript-eslint/explicit-function-return-type": 0,
-      },
+        "@typescript-eslint/explicit-function-return-type": 0
+      }
     },
     {
       files: "*.ts",
-      parser: "@typescript-eslint/parser",
-    },
-  ],
+      parser: "@typescript-eslint/parser"
+    }
+  ]
 };
