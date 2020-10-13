@@ -1,6 +1,6 @@
 {
   "name": "@puncsky/eslint-config-onefx-react",
-  "version": "2.4.3",
+  "version": "2.5.0",
   "description": "lint rules for onefx projects",
   "main": "index.js",
   "peerDependencies": {
