@@ -138,6 +138,7 @@
   },
   "dependencies": {
     "deep-extend": "0.6.0",
+    "dotenv": "8.2.0",
     "dottie": "latest",
     "global": "4.4.0",
     "is-browser": "2.1.0",
