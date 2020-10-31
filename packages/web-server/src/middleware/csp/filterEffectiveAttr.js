@@ -1,4 +1,3 @@
-// 有效的安全策略命名
 export const effectiveAttr = [
   "default-src",
   "child-src",
@@ -16,8 +15,7 @@ export const effectiveAttr = [
 ];
 
 /**
- * @desc 过滤无效安全策略并格式化
- *       有效策略命名参照 effectiveAttr
+ * @desc filter invalid policies and format them
  *
  * @return {Array} exp. [['default-src', 'self'], ['img-src', 'self']]
  */

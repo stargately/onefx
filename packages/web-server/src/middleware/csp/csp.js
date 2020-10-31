@@ -3,18 +3,11 @@ import filterEffectiveAttr, { effectiveAttr } from "./filterEffectiveAttr";
 import repareKeyWords from "./repareKeyWords";
 import * as log from "./log";
 
-/**
- * @desc 生成一条策略的字符串
- *
- * @return {String} 'default-src self'
- */
 function generateSubPolicyStr(policy) {
   return policy.map(repareKeyWords).join(" ");
 }
 
-// 默认配置-只允许该域名下内容
 const defaultParams = {
-  // 是否显示警告信息
   enableWarn: true,
   policy: {
     "default-src": ["self"],
@@ -34,9 +27,9 @@ function validatorPolicy(policy) {
 }
 
 /**
- * @desc 设置响应头 Content-Security-Policy
+ * @desc Content-Security-Policy
  *
- * @param customPolicy {Object} 自定义安全策略 exp. { 'img-src': ['self'] };
+ * @param customPolicy {Object} exp. { 'img-src': ['self'] };
  */
 export default function ({ enableWarn = true, policy = {} } = defaultParams) {
   return async (ctx, next) => {

@@ -5,13 +5,13 @@ import { isoReactRenderMiddleware } from "../iso-react-render/iso-react-render-m
 import { Server } from "../server";
 import { Context, Middleware, Next } from "../types";
 import { cookieSessionMiddleware } from "./cookie-session-middleware";
-// @ts-ignore
-import csp from "./csp/csp";
 import { csrfMiddleware, isPrefixMatched } from "./csrf-middleware";
 import { initI18nMiddleware } from "./i18n-middleware";
 import { staticServe } from "./static-serve";
 import { uncaughtErrorMiddleware } from "./uncaught-error-middleware";
 import { viewBaseState } from "./view-base-state";
+
+const csp = require("./csp/csp");
 
 export function initMiddleware(server: Server): void {
   server.use(uncaughtErrorMiddleware(server));
@@ -38,7 +38,6 @@ export function initMiddleware(server: Server): void {
 
   // security headers
   const { noSecurityHeadersRoutes } = server.config.server;
-  // @ts-ignore
   server.use(
     htmlOnlyMiddleware({
       postFunc: async (ctx: Context, _: Next) => {
