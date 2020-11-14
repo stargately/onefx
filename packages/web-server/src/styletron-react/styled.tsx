@@ -22,7 +22,7 @@ export interface StyledFn {
   <
     C extends keyof JSX.IntrinsicElements | React.ComponentType<any>,
     // eslint-disable-next-line @typescript-eslint/ban-types
-    P extends object
+    P extends Record<string, string | number | boolean>
   >(
     component: C,
     style: (props: P & { $theme: Theme }) => StyleObject
