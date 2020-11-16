@@ -22,16 +22,19 @@ export interface StyledFn {
   <
     C extends keyof JSX.IntrinsicElements | React.ComponentType<any>,
     // eslint-disable-next-line @typescript-eslint/ban-types
-    P extends Record<string, string | number | boolean>
+    P extends object
   >(
     component: C,
-    style: (props: P & { $theme: Theme }) => StyleObject
+    style: (props: P & { 
+      [keys: string]: boolean | number | string;
+      $theme: Theme;
+    }) => StyleObject
   ): StyletronComponent<
     Pick<
       React.ComponentProps<C>,
       Exclude<keyof React.ComponentProps<C>, { className: string }>
     > &
-      P
+     P | Record<string, boolean | number | string>
   >;
 
   <C extends keyof JSX.IntrinsicElements | React.ComponentType<any>>(
