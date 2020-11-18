@@ -33,6 +33,28 @@ export const THEME = {
     nav03: "var(--nav03)",
   },
   sizing: ["2px", "6px", "10px", "16px", "24px", "32px"],
+  fonts: [
+    {
+      fontSize: "12px",
+      lineHeight: "20px",
+    },
+    {
+      fontSize: "14px",
+      lineHeight: "22px",
+    },
+    {
+      fontSize: "16px",
+      lineHeight: "24px",
+    },
+    {
+      fontSize: "20px",
+      lineHeight: "28px",
+    },
+    {
+      fontSize: "24px",
+      lineHeight: "32px",
+    },
+  ],
 };
 
 const { Provider, Consumer } = React.createContext<Theme>(THEME);

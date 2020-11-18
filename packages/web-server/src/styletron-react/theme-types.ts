@@ -1,3 +1,10 @@
+type Font = {
+  fontSize: string | number;
+  lineHeight: string | number;
+  fontFamily?: string;
+  letterSpacing?: string | number;
+};
+
 export type Theme = {
   colors: {
     primary: string;
@@ -26,4 +33,5 @@ export type Theme = {
     nav03: string; //	Global footer
   };
   sizing: Array<string>;
+  fonts: Array<Font>;
 };
