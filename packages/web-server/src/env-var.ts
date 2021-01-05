@@ -4,8 +4,8 @@ config();
 
 export function getEnvVar(
   varName: string,
-  defaultValue: string,
-  isHardDependency = false
+  defaultValue?: string,
+  isHardDependency?: boolean
 ): string {
   const val = process.env[varName];
   if (!val) {
@@ -19,5 +19,5 @@ export function getEnvVar(
       );
     }
   }
-  return val || defaultValue;
+  return (val !== undefined ? val : defaultValue) || "";
 }
