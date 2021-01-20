@@ -32,8 +32,8 @@ export function isoReactRenderMiddleware(server: Server): Middleware {
 
       const context = {
         url: undefined,
-        statusCode: undefined,
-        status: undefined,
+        statusCode: 200,
+        status: 200,
       };
       initClientI18n(ctx.state.view.base.translations);
       const reactMarkup = renderToString(
@@ -50,14 +50,15 @@ export function isoReactRenderMiddleware(server: Server): Middleware {
 
       // This will contain the URL to redirect to if <Redirect> was used
       if (context.url) {
-        // @ts-ignore
-        return ctx.redirect(context.url);
+        ctx.redirect(
+          context.statusCode ? String(context.statusCode) : "302",
+          context.url
+        );
+        return "";
       }
       if (context.statusCode) {
-        // @ts-ignore
         ctx.status = context.statusCode;
       } else if (context.status) {
-        // @ts-ignore
         ctx.status = context.status;
       }
 
