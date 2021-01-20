@@ -1,7 +1,7 @@
 {
   "name": "onefx-common-components",
   "license": "MIT",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "field_description",
   "files": [
     "lib",
@@ -98,7 +98,7 @@
     "husky": "4.3.6",
     "koa": "^2.13.0",
     "nyc": "13.3.0",
-    "onefx": "^2.6.2",
+    "onefx": "^2.6.3",
     "onefx-auth": "^2.6.2",
     "prettier": "1.19.1",
     "pretty-quick": "1.11.1",
