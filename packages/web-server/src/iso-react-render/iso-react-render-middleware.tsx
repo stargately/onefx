@@ -31,9 +31,9 @@ export function isoReactRenderMiddleware(server: Server): Middleware {
       const styletron = new StyletronServer({ prefix: "_" });
 
       const context = {
-        url: undefined,
+        url: "",
         statusCode: 200,
-        status: 200,
+        status: 200
       };
       initClientI18n(ctx.state.view.base.translations);
       const reactMarkup = renderToString(
@@ -48,18 +48,15 @@ export function isoReactRenderMiddleware(server: Server): Middleware {
         </RootServer>
       );
 
-      // This will contain the URL to redirect to if <Redirect> was used
-      if (context.url) {
-        ctx.redirect(
-          context.statusCode ? String(context.statusCode) : "302",
-          context.url
-        );
-        return "";
-      }
       if (context.statusCode) {
         ctx.status = context.statusCode;
       } else if (context.status) {
         ctx.status = context.status;
+      }
+      // This will contain the URL to redirect to if <Redirect> was used
+      if (context.url) {
+        ctx.redirect(context.url);
+        return "";
       }
 
       return rootHtml({ styletron, jsonGlobals, reactMarkup, clientScript });
