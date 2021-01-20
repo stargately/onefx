@@ -11,7 +11,7 @@ import { staticServe } from "./static-serve";
 import { uncaughtErrorMiddleware } from "./uncaught-error-middleware";
 import { viewBaseState } from "./view-base-state";
 
-const csp = require("./csp/csp");
+const csp = require("./csp/csp").default;
 
 export function initMiddleware(server: Server): void {
   server.use(uncaughtErrorMiddleware(server));
@@ -24,7 +24,7 @@ export function initMiddleware(server: Server): void {
     "serve-static",
     "/(.*)",
     staticServe(staticDir, {
-      routePrefix: server.config.server.routePrefix,
+      routePrefix: server.config.server.routePrefix
     })
   );
 
@@ -45,17 +45,17 @@ export function initMiddleware(server: Server): void {
           return;
         }
         await helmet()(ctx, () => Promise.resolve(null));
-      },
+      }
     })
   );
   const cspConfig = server.config.csp;
   if (cspConfig) {
     server.use(
       htmlOnlyMiddleware({
-        preFunc: async (ctx) => {
+        preFunc: async ctx => {
           ctx.state.nonce = uuidv4();
         },
-        postFunc: async (ctx) => {
+        postFunc: async ctx => {
           if (isPrefixMatched(noSecurityHeadersRoutes, ctx.path)) {
             return;
           }
@@ -66,11 +66,11 @@ export function initMiddleware(server: Server): void {
                 ...cspConfig["script-src"],
                 (c: Context) => {
                   return `'nonce-${c.state.nonce}'`;
-                },
-              ],
-            },
+                }
+              ]
+            }
           })(ctx, () => null);
-        },
+        }
       })
     );
   }
@@ -78,7 +78,7 @@ export function initMiddleware(server: Server): void {
 
 function htmlOnlyMiddleware({
   preFunc = () => null,
-  postFunc = () => null,
+  postFunc = () => null
 }: {
   preFunc?: Middleware;
   postFunc?: Middleware;
