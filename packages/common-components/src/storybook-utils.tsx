@@ -1,9 +1,9 @@
-import { styled } from "onefx/lib/styletron-react";
+import { styled, Theme, ThemeProvider } from "onefx/lib/styletron-react";
 import React from "react";
 import "./antd.less";
 import { Story } from "@storybook/react/types-6-0";
 import { BrowserRouter } from "react-router-dom";
-import { Theme, ThemeProvider } from "onefx/lib/styletron-react";
+
 import { THEME } from "onefx/lib/styletron-react/theme-provider";
 import { Client as StyletronClient } from "styletron-engine-atomic";
 import { Provider as StyletronProvider } from "styletron-react";

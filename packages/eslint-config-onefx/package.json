@@ -3,9 +3,6 @@
   "version": "2.6.4",
   "description": "lint rules for onefx projects",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "peerDependencies": {
     "eslint": ">= 7"
   },
