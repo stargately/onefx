@@ -1,7 +1,7 @@
 {
   "name": "onefx-common-components",
   "license": "MIT",
-  "version": "2.6.5",
+  "version": "2.6.6",
   "description": "field_description",
   "files": [
     "lib",
@@ -66,7 +66,7 @@
     "@babel/preset-react": "7.12.10",
     "@babel/preset-typescript": "7.12.7",
     "@babel/register": "7.12.10",
-    "@puncsky/eslint-config-onefx": "^2.6.4",
+    "@puncsky/eslint-config-onefx": "^2.6.6",
     "@puncsky/eslint-config-onefx-react": "^2.6.4",
     "@storybook/react": "^6.1.15",
     "@types/koa": "^2.11.4",
@@ -101,8 +101,8 @@
     "husky": "4.3.6",
     "koa": "^2.13.0",
     "nyc": "13.3.0",
-    "onefx": "^2.6.5",
-    "onefx-auth": "^2.6.4",
+    "onefx": "^2.6.6",
+    "onefx-auth": "^2.6.6",
     "prettier": "1.19.1",
     "pretty-quick": "1.11.1",
     "react": "16.13.1",

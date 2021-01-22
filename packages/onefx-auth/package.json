@@ -1,7 +1,7 @@
 {
   "name": "onefx-auth",
   "license": "MIT",
-  "version": "2.6.4",
+  "version": "2.6.6",
   "description": "field_description",
   "files": [
     "lib",
@@ -65,7 +65,7 @@
     "@babel/preset-env": "7.12.11",
     "@babel/preset-typescript": "7.12.7",
     "@babel/register": "7.12.10",
-    "@puncsky/eslint-config-onefx": "^2.6.4",
+    "@puncsky/eslint-config-onefx": "^2.6.6",
     "@types/koa": "^2.11.4",
     "@types/mongoose": "^5.7.36",
     "@types/node": "11.15.27",
@@ -84,12 +84,12 @@
     "koa": "^2.13.0",
     "mongoose": "^5.10.6",
     "nyc": "14.1.1",
+    "onefx": "^2.6.6",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.2",
     "ts-node": "8.10.2",
     "typescript": "3.9.7",
-    "uuid": "^8.3.0",
-    "onefx": "^2.6.5"
+    "uuid": "^8.3.0"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -107,7 +107,7 @@
     "@types/uuid": "^8.3.0",
     "koa": "^2.13.0",
     "mongoose": "^5.10.6",
-    "uuid": "^8.3.0",
-    "onefx": "^2.6.5"
+    "onefx": "^2.6.5",
+    "uuid": "^8.3.0"
   }
 }
