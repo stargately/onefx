@@ -69,6 +69,7 @@
     "@babel/register": "7.12.10",
     "@puncsky/eslint-config-onefx": "^2.6.4",
     "@puncsky/eslint-config-onefx-react": "^2.6.4",
+    "@storybook/react": "^6.1.15",
     "@types/koa": "^2.11.4",
     "@types/node": "11.15.27",
     "@types/react-helmet": "^6.1.0",

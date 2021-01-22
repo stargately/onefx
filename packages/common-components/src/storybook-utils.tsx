@@ -38,7 +38,8 @@ const light: Theme = {
     nav02: "#20232a",
     nav03: "#151d27"
   },
-  sizing: THEME.sizing
+  sizing: THEME.sizing,
+  fonts: []
 };
 
 export const WrapThemeProvider: React.FC = ({ children }) => {
