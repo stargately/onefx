@@ -9,9 +9,9 @@
     "@storybook/react": "^6.0.21",
     "babel-loader": "^8.1.0",
     "lerna": "3.22.1",
-    "react-is": "^16.13.1",
-    "less": "^3.12.2",
-    "less-loader": "^7.0.1"
+    "less": "^4.1.0",
+    "less-loader": "^7.3.0",
+    "react-is": "^17.0.1"
   },
   "dependencies": {},
   "scripts": {
