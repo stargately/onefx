@@ -45,7 +45,7 @@ export class UserModel {
 
     UserSchema.index({ email: 1 }, { unique: true });
 
-    this.Model = mInstance.model("User", UserSchema);
+    this.Model = mInstance.model<TUser>("User", UserSchema);
   }
 
   public async getById(id: string): Promise<TUser | null> {

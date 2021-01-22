@@ -88,7 +88,8 @@
     "pretty-quick": "2.0.2",
     "ts-node": "8.10.2",
     "typescript": "3.9.7",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "onefx": "^2.6.5"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -106,6 +107,7 @@
     "@types/uuid": "^8.3.0",
     "koa": "^2.13.0",
     "mongoose": "^5.10.6",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "onefx": "^2.6.5"
   }
 }

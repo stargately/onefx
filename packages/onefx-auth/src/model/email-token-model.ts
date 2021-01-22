@@ -49,7 +49,10 @@ export class EmailTokenModel {
 
     EmailTokenSchema.index({ token: 1 });
 
-    this.Model = mInstance.model("email_tokens", EmailTokenSchema);
+    this.Model = mInstance.model<EmailTokenModelType>(
+      "email_tokens",
+      EmailTokenSchema
+    );
   }
 
   public async newAndSave(userId: string): Promise<EmailToken> {

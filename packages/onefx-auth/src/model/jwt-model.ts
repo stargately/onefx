@@ -62,7 +62,7 @@ export class JwtModel {
 
     JwtSchema.index({ userId: 1 });
 
-    this.Model = mInstance.model("Jwt", JwtSchema);
+    this.Model = mInstance.model<AuthJwtModel>("Jwt", JwtSchema);
   }
 
   public async create(userId: string): Promise<string> {
