@@ -104,7 +104,7 @@
     "onefx": "^2.6.8",
     "onefx-auth": "^2.6.9",
     "prettier": "1.19.1",
-    "pretty-quick": "1.11.1",
+    "pretty-quick": "3.1.0",
     "react": "16.13.1",
     "react-helmet": "^6.1.0",
     "react-redux": "^7.2.1",
