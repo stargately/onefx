@@ -65,12 +65,12 @@ export function allowedLoginNext(config: AuthConfig, next: string): string {
   if (config.allowedLoginNext.find(prefix => isPrefix(prefix, next))) {
     return next;
   }
-  return authConfig.allowedLoginNext[0];
+  return config.allowedLoginNext[0];
 }
 
 export function allowedLogoutNext(config: AuthConfig, next: string): string {
   if (config.allowedLogoutNext.find(prefix => isPrefix(prefix, next))) {
     return next;
   }
-  return authConfig.allowedLogoutNext[0];
+  return config.allowedLogoutNext[0];
 }
