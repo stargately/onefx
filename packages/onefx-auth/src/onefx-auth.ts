@@ -100,7 +100,7 @@ export class OnefxAuth {
         await this.jwt.revoke(token);
       }, 0);
     }
-    ctx.redirect(allowedLogoutNext(ctx.query.next));
+    ctx.redirect(allowedLogoutNext(this.config, ctx.query.next));
   };
 
   public postAuthentication = async (ctx: Context): Promise<void> => {
@@ -114,6 +114,7 @@ export class OnefxAuth {
     ctx.cookies.set(this.config.cookieName, token, this.config.cookieOpts);
     ctx.state.jwt = token;
     const nextUrl = allowedLoginNext(
+      this.config,
       ctx.query.next || (ctx.request.body && ctx.request.body.next)
     );
     if (ctx.is("json")) {

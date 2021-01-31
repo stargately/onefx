@@ -57,19 +57,19 @@ export const authConfig = {
   emailTokenNext: "/settings/reset-password/"
 };
 
-export function allowedLoginNext(next: string): string {
-  if (
-    authConfig.allowedLoginNext.find(prefix => String(next).startsWith(prefix))
-  ) {
+function isPrefix(prefix: string, str: string): boolean {
+  return new RegExp(`^${prefix}(?!\\/).*`, "i").test(str);
+}
+
+export function allowedLoginNext(config: AuthConfig, next: string): string {
+  if (config.allowedLoginNext.find(prefix => isPrefix(prefix, next))) {
     return next;
   }
   return authConfig.allowedLoginNext[0];
 }
 
-export function allowedLogoutNext(next: string): string {
-  if (
-    authConfig.allowedLogoutNext.find(prefix => String(next).startsWith(prefix))
-  ) {
+export function allowedLogoutNext(config: AuthConfig, next: string): string {
+  if (config.allowedLogoutNext.find(prefix => isPrefix(prefix, next))) {
     return next;
   }
   return authConfig.allowedLogoutNext[0];
