@@ -104,7 +104,7 @@
     "husky": "4.3.6",
     "is-browser": "^2.1.0",
     "koa": "^2.13.0",
-    "nyc": "13.3.0",
+    "nyc": "15.1.0",
     "onefx": "^2.6.8",
     "onefx-auth": "^2.6.9",
     "onefx-common-components": "^2.6.9",
