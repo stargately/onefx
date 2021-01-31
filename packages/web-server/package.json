@@ -93,7 +93,7 @@
     "@types/styletron-engine-atomic": "1.1.0",
     "@types/styletron-react": "5.0.2",
     "@types/styletron-standard": "2.0.1",
-    "@types/uuid": "8.0.0",
+    "@types/uuid": "8.3.0",
     "@typescript-eslint/eslint-plugin": "4.1.1",
     "@typescript-eslint/parser": "4.1.1",
     "ava": "3.10.0",
@@ -158,7 +158,7 @@
     "methods": "1.1.2",
     "safe-json-globals": "2.1.0",
     "styletron-standard": "^3.0.4",
-    "uuid": "8.2.0",
+    "uuid": "8.3.2",
     "winston": "3.3.3"
   }
 }
