@@ -1,7 +1,7 @@
 {
   "name": "onefx-auth",
   "license": "MIT",
-  "version": "2.6.8",
+  "version": "2.6.9",
   "description": "field_description",
   "files": [
     "lib",
