@@ -1,7 +1,7 @@
 {
   "name": "onefx-auth-provider",
   "license": "MIT",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "description": "field_description",
   "files": [
     "lib",
@@ -106,8 +106,8 @@
     "koa": "^2.13.0",
     "nyc": "13.3.0",
     "onefx": "^2.6.6",
-    "onefx-auth": "^2.6.6",
-    "onefx-common-components": "^2.6.6",
+    "onefx-auth": "^2.6.7",
+    "onefx-common-components": "^2.6.7",
     "prettier": "1.19.1",
     "pretty-quick": "1.11.1",
     "react": "16.13.1",
