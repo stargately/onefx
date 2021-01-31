@@ -79,7 +79,7 @@
     "@types/json-stringify-safe": "5.0.0",
     "@types/koa-bodyparser": "4.3.0",
     "@types/koa-csrf": "3.0.1",
-    "@types/koa-helmet": "5.2.0",
+    "@types/koa-helmet": "5.2.2",
     "@types/koa-router": "7.4.1",
     "@types/koa-send": "4.1.2",
     "@types/koa-session": "5.10.2",
