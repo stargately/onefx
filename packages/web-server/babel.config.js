@@ -4,13 +4,13 @@ module.exports = {
       "@babel/preset-env",
       {
         targets: {
-          node: "current",
-        },
-      },
+          node: "current"
+        }
+      }
     ],
     ["@babel/preset-react"],
-    ["@babel/preset-typescript"],
+    ["@babel/preset-typescript"]
   ],
-  plugins: [],
-  ignore: [/node_modules\//g],
+  plugins: [["@babel/proposal-class-properties"]],
+  ignore: [/node_modules\//g]
 };

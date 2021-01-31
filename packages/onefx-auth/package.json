@@ -65,6 +65,7 @@
     "@babel/preset-env": "7.12.11",
     "@babel/preset-typescript": "7.12.7",
     "@babel/register": "7.12.10",
+    "@babel/plugin-proposal-class-properties": "7.10.4",
     "@puncsky/eslint-config-onefx": "^2.6.6",
     "@types/koa": "^2.11.4",
     "@types/mongoose": "^5.7.36",
