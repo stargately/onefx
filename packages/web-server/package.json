@@ -144,7 +144,7 @@
     "is-browser": "2.1.0",
     "js-yaml": "3.14.0",
     "json-stringify-safe": "5.0.1",
-    "koa": "2.13.0",
+    "koa": "2.13.1",
     "koa-bodyparser": "4.3.0",
     "koa-csrf": "3.0.8",
     "koa-helmet": "5.2.0",
