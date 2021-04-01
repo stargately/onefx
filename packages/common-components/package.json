@@ -116,7 +116,7 @@
     "styletron-engine-atomic": "^1.4.6",
     "styletron-react": "^5.2.7",
     "styletron-standard": "^3.0.4",
-    "ts-node": "8.10.2",
+    "ts-node": "9.1.1",
     "typescript": "3.9.7",
     "uglifyjs-webpack-plugin": "2.2.0",
     "webpack": "4.44.2",
