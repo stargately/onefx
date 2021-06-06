@@ -86,7 +86,7 @@
     "mongoose": "^5.10.6",
     "nyc": "14.1.1",
     "onefx": "^2.6.8",
-    "prettier": "1.19.1",
+    "prettier": "2.3.1",
     "pretty-quick": "2.0.2",
     "ts-node": "8.10.2",
     "typescript": "3.9.7",
