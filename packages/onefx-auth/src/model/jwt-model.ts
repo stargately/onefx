@@ -1,11 +1,13 @@
-import jwt from "jsonwebtoken";
+import jwt, { Secret, VerifyOptions } from "jsonwebtoken";
 import mongoose from "mongoose";
 import { promisify } from "util";
 
 const { Schema } = mongoose;
 
 const sign = promisify(jwt.sign);
-const verify = promisify(jwt.verify);
+const verify = promisify<string, Secret, VerifyOptions | undefined, AuthJwt>(
+  jwt.verify
+);
 
 type Opts = {
   secret: string;
@@ -80,10 +82,21 @@ export class JwtModel {
     );
   }
 
+  async revokeOtherSessions(userId: string, token: string): Promise<void> {
+    let decoded;
+    try {
+      decoded = await verify(token, this.secret, undefined);
+    } catch (e) {
+      return undefined;
+    }
+    await this.Model.deleteMany({ userId, _id: { $ne: decoded.jti } });
+    return undefined;
+  }
+
   public async revoke(token: string): Promise<void> {
     let decoded;
     try {
-      decoded = (await verify(token, this.secret)) as AuthJwt;
+      decoded = (await verify(token, this.secret, undefined)) as AuthJwt;
     } catch (e) {
       return;
     }
@@ -93,7 +106,7 @@ export class JwtModel {
   public async verify(token: string): Promise<UserId> {
     let decoded: AuthJwt;
     try {
-      decoded = (await verify(token, this.secret)) as AuthJwt;
+      decoded = (await verify(token, this.secret, undefined)) as AuthJwt;
     } catch (e) {
       return "";
     }
