@@ -103,6 +103,12 @@ export class OnefxAuth {
     ctx.redirect(allowedLogoutNext(this.config, ctx.query.next));
   };
 
+  logoutOtherSessions = async (ctx: Context): Promise<void> => {
+    const token = this.tokenFromCtx(ctx);
+    const { userId } = ctx.state;
+    await this.jwt.revokeOtherSessions(userId, token);
+  };
+
   public postAuthentication = async (ctx: Context): Promise<void> => {
     if (!ctx.state.userId) {
       return;
